@@ -1,38 +1,31 @@
 
-
-
-
-
-
-
-
-
-
+il s'agit ici de parser et remplir la base de donné avec les messages reçus sur un Mails.
+Ensuite après avoir parsé et trouver le type, envoyer un SMS au numéro contenu dans le message, en utilisant bulksms.com
 
 
                                    |---it containt M, fill type    |
-                                   |---it contait R, fill type     |                  |---if time is 8H-18H--- wait 30minutes
-DID_SMS-----mailbox-----Database---|---it contail B, fill type     |----- reply_wait--|
-                                   |---it containt S, fill type    |                  |---if time is night/sunday--- wait next day 
+                                   |---it contait R, fill type     |                 |---if time is 8H-18H--- wait 30minutes
+DID_SMS-----mailbox-----Database---|---it contail B, fill type     |-----reply_wait--|
+                                   |---it containt S, fill type    |                 |---if time is night/sunday-wait_next_day 
                                    |---don't recognized, fill      |
                                      
 
 
 # Tables exemple
 -Message
-id | message | type | user_amount | service_cost | wait_message | status | receive_date | execution_date| comment
+id | user_number | message | type | user_amount | service_cost | wait_message | status | receive_date | execution_date|comment
+
 
 - static and payement
 id | total_executed |
 
 
+- bulk sms send stat
+id | message | send_stat | comment
 
 
 
-
-
-
-
-lien:
-- https://github.com/pjstevns/dbmail  ou http://www.dbmail.org/dokuwiki/doku.php
-- Google search for "Run python script on Database event"
+liens:
+- https://github.com/pjstevns/dbmail  ou http://www.dbmail.org/dokuwiki/doku.php   ( for mail to database )
+- Google search for "Run python script on Database event" 
+- http://developer.bulksms.com/json/v1/#section/Overview   ( for reply sms )
